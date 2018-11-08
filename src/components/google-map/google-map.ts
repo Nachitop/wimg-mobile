@@ -37,6 +37,7 @@ export class GoogleMapComponent {
   mapOptions: google.maps.MapOptions;
   lugarGeo:any;
  
+ 
 
  
  //private servicesGooglePlacesProvider:ServicesGooglePlacesProvider 
@@ -79,6 +80,7 @@ console.log("olvvv")
       this.mapOptions=this.crearOpciones();
       this.map.setOptions(this.mapOptions);
      // this.initMap();
+    
      this.pintarMarcador(this.coordsG,this.map,"Me encuentro aquí!","http://maps.google.com/mapfiles/ms/icons/red-dot.png");
       this.obtenerLugares();
       
@@ -91,6 +93,8 @@ console.log("olvvv")
         zoom:13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
+     
+      
       return mapOptions;
   }
   initMap(){
@@ -106,8 +110,8 @@ console.log("olvvv")
       }
 
       pintarMarcador(coords:any, map:any, tit:any,ico:any){
-        
-         const marker:google.maps.Marker= new google.maps.Marker({
+       
+         let marker: google.maps.Marker= new google.maps.Marker({
           map:this.map,
           position:coords,
          
@@ -135,14 +139,14 @@ console.log("olvvv")
          // map.setZoom(8);
          // map.setCenter(marker.getPosition())
         });
-        
+      
       }
     
 
 
      
       obtenerLugares=async()=>{
-
+        
       await this.http.get("https:maps.googleapis.com/maps/api/place/nearbysearch/json?location="+this.latitude+"%2C"+this.longitud+"&radius=5000&type=point_of_interest&keyword=cruise&key=AIzaSyBSKNno0k2uTLczSQL08pRkCYN_Q419-hg")
         .subscribe(res=>{
         
@@ -150,6 +154,7 @@ console.log("olvvv")
           console.log(this.places.results);
           for(let lugar of this.places.results){
            // console.log(lugar.plus_code.compound_code);
+           
             this.pintarMarcador(lugar.geometry.location,this.map,lugar.name,"http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
           }
         })

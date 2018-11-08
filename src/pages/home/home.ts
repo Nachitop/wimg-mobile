@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ListaguiasPage } from '../listaguias/listaguias';
+import {GuiaPage} from '../guia/guia'
+
 
 
 @Component({
@@ -8,9 +10,9 @@ import { ListaguiasPage } from '../listaguias/listaguias';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  
+  
   constructor(public navCtrl: NavController) {
-
 
 
   }
@@ -21,6 +23,6 @@ export class HomePage {
   }
   irAGuia(){
        
-    this.navCtrl.push('guia');
+    this.navCtrl.push('GuiaPage');
   }
 }
