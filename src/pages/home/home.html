@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title>Where Is My Guide</ion-title>
+
+  
+  
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<google-map></google-map>
+<!--<pago-paypal></pago-paypal>-->
+  
+
+  <!--<button ion-button secondary menuToggle>Toggle Menu</button>!-->
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+   <!-- <ion-title>Footer</ion-title>-->
+ 
+    <button ion-button icon-start color="primary" (click)="irAGuias()" >
+      Guias &nbsp; 
+      <ion-icon name="people" ></ion-icon>
+    </button>
+    <button ion-button icon-start color="secondary" >
+      Cotizar &nbsp; 
+      <ion-icon name="cash" ></ion-icon>
+    </button>
+
+    <button ion-button icon-start color="secondary" (click)="irAGuia()">
+      Otro &nbsp; 
+      <ion-icon name="cash" ></ion-icon>
+    </button>
+
+  </ion-toolbar>
+</ion-footer>

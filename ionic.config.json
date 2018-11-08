@@ -1,0 +1,7 @@
+{
+  "name": "WIMG",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
