@@ -14,3 +14,37 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.star {
+    
+        color: #FBF543;
+        font-size: 30px;
+        border: black 1px;
+    
+ }
+
+ .star2 {
+    
+    
+    font-size: 30px;
+    color: gray;
+
+}
+
+.activo{
+   background-color: #D6FEB8;
+}
+.inactivo{
+    background-color:#FA8080;
+}
+ .recorrido{
+     background-color:#FDFEB8;
+ }
+
+ .bordered{
+    border: 1px solid grey; 
+    border-style: solid;
+    border-width: 3px;
+    //border-color: #346EA8;
+    box-shadow: 0 2px 4px rgb(0,0,0.2),0 3px 10px 0 rgb(0,0,0.19);
+ }

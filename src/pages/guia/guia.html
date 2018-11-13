@@ -7,21 +7,77 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>guia</ion-title>
+    <ion-title>Perfil del guia</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="img/avatar-finn.png">
-      </ion-avatar>
-      <h2>Finn</h2>
-      <h3>Don't Know What To Do!</h3>
-      <p>I've had a pretty messed up day. If we just...</p>
-    </ion-item>
-  </ion-list>
+<ion-content padding *ngIf="guia">
+   
+  
+
+  <ion-card style="margin-top: 70px;" >
+      <img [src]="guia.Guia.foto" />
+      <ion-card-content>
+        <ion-card-title>
+            {{guia.Guia.nombre}}  {{guia.Guia.apellido}}
+           
+           
+           </ion-card-title>
+          
+           
+                <div style="float: right"> <ion-icon name="star" class="star" *ngFor="let estrella of estrellas"></ion-icon> <ion-icon name="star" class="star2"  *ngFor="let estrellaVacia of estrellasVacias"></ion-icon>
+                  <ion-item>
+                      <ion-avatar item-end>
+                       <img *ngIf="bandera" [src]="bandera">
+                      
+                      </ion-avatar>
+                   </ion-item>
+                </div>
+            
+          
+        
+       <p  class="inline-p">Edad: </p><p  class="inline-p">{{calculateAge(guia.Guia.fecha_nacimiento)}}</p>
+        <div>
+          <p  class="inline-p" >Sexo: </p>
+            <p class="inline-p" > {{convSexo(guia.Guia.sexo)}}</p>
+        </div>
+        <br>
+       
+        <div>
+          <h2>Idiomas</h2>
+          <p>{{idiomas}}</p>
+        </div>
+        <br>
+        <div>
+            <h2>Titulos</h2>
+            <p>{{titulos}}</p>
+          </div>
+        <br>
+        
+          <div>
+              <h2>Lugares conocidos</h2>
+              <p>{{lugares}}</p>
+            </div>
+           
+      </ion-card-content>
+    </ion-card>
+    
+        <button [disabled]="guia.Guia.disponibilidad!='A'" style="float:right; margin-right: 10px;" ion-button color="secondary" (click)="showConfirm()">Contratar</button>
+      
+    <ion-content>
+    <h2>Comentarios</h2>
+        <ion-list *ngIf="comentarios">
+          <ion-item>
+            <ion-note item-start *ngFor="let comentario of comentarios">
+              {{comentario.nombre}} {{comentario.apellido}}
+            </ion-note>
+            
+            <ion-note item-end *ngIf="comentario!=undefined">
+           {{comentario.comentario}}
+            </ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-content>
 </ion-content>

@@ -4,7 +4,7 @@ export interface Guia1 {
     lugares:      Lugare[];
     idiomas:      Idioma[];
     titulos:      Titulo[];
-    comentarios:  any[];
+    comentarios:  Comentario[];
     valoraciones: any[];
 }
 
@@ -13,12 +13,12 @@ export interface Guia2 {
     nombre:           string;
     apellido:         string;
     email:            string;
-    id_pais:          string;
+    pais:          string;
     fecha_nacimiento: string;
     sexo:             string;
     telefono:         string;
     disponibilidad:   string;
-    foto:             null;
+    foto:             string;
 }
 
 export interface Idioma {
@@ -34,4 +34,10 @@ export interface Lugare {
 
 export interface Titulo {
     Titulo: string;
+}
+
+export interface Comentario{
+    nombre:string;
+    apellido:string;
+    comentario:string;
 }

@@ -14,30 +14,49 @@
 
 
 <ion-content padding>
-<div>{{ubicacion}}</div>
-<ion-list>
-  <ion-item-sliding>
-    <ion-item>
+<ion-list *ngIf="guias" >
+ 
+  <ion-item-sliding *ngFor="let guia of guias.Guias">
+    <ion-item class="bordered" *ngIf="guia.disponibilidad!=='I'" [ngClass]="{ 'activo': guia.disponibilidad=='A', 'inactivo': guia.disponibilidad=='I' , 'recorrido': guia.disponibilidad=='R' }">
       <ion-avatar item-start>
-        <img src="img/slimer.png">
+        <img [src]="guia.foto">
       </ion-avatar>
-      <h2>Slimer</h2>
+     
+      <h2>{{guia.nombre}} {{guia.apellido}}</h2>
+      <div>
+      <h3 class="inline-p">Edad: </h3><p class="inline-p">{{calculateAge(guia.fecha_nacimiento)}}</p>
+      </div>
+      <div>
+      <h3 class="inline-p">Sexo: </h3><p class="inline-p">{{convSexo(guia.sexo)}}</p>
+      </div>
+      <div>
+          <h3 class="inline-p" >Disponibilidad: </h3><p class="inline-p" >{{convDis(guia.disponibilidad)}}</p>
+          </div>
+         
+           
     </ion-item>
+   
     <ion-item-options side="left">
-      <button ion-button color="primary">
-        <ion-icon name="text"></ion-icon>
-        Text
-      </button>
-      <button ion-button color="secondary">
-        <ion-icon name="call"></ion-icon>
-        Call
-      </button>
+      
+      <ion-item>
+          <ion-avatar item-start>
+              <img *ngIf="flagService.flags.result" [src]="obtenerFlag(guia.Pais)">
+            </ion-avatar>
+            </ion-item>
+           <ion-item style="float:left">
+             <ion-avatar>
+                <ion-icon name="star" class="star">
+                {{guia.Valoracion[0]}}</ion-icon>
+                </ion-avatar>
+             </ion-item>
+           
     </ion-item-options>
     <ion-item-options side="right">
-      <button ion-button color="primary">
-        <ion-icon name="mail"></ion-icon>
-        Email
+      <button ion-button color="primary" (click)="irAPerfil(guia.id)">
+        <ion-icon name="perfil"></ion-icon>
+        Ver perfil
       </button>
+      
     </ion-item-options>
   </ion-item-sliding>
 </ion-list>

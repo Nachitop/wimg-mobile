@@ -16,6 +16,11 @@ import { ServicesGooglePlacesProvider } from '../providers/services-google-place
 import { PayPal } from '@ionic-native/paypal';
 
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
+import { GuiaProvider } from '../providers/guia/guia';
+import { FlagProvider } from '../providers/flag/flag';
+import { DatasharingProvider } from '../providers/datasharing/datasharing';
+import { GeolocationProvider } from '../providers/geolocation/geolocation';
+import { LugarProvider } from '../providers/lugar/lugar';
 
 
 @NgModule({
@@ -41,7 +46,12 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, Geolocation,
     ServicesGooglePlacesProvider,PayPal,
-    NativeGeocoder
+    NativeGeocoder,
+    GuiaProvider,
+    FlagProvider,
+    DatasharingProvider,
+    GeolocationProvider,
+    LugarProvider
  
   ]
 })

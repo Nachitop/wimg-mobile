@@ -1,0 +1,51 @@
+<!--
+  Generated template for the ResumenpagoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Resumen de pago</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="lugares">
+   
+   
+
+
+      <ion-item *ngIf="lugarM">
+         
+          <br>
+        <div>
+      <h2 class="inline-p" >Tiempo de recorrido: </h2><p class="inline-p" >{{lugarM.duracion}}</p>
+      </div>
+      <br>
+      <div>
+      <h2 class="inline-p" >Limite de personas: </h2><p class="inline-p" >{{lugarM.limite_personas}}</p>
+      </div>
+      <br>
+      <div>
+      <h2>Total a pagar: </h2><p>{{lugarM.costo}}</p>
+      </div>
+    </ion-item>
+       <br> 
+       <br>
+       <ion-list >
+          <ion-item>
+              
+             
+            <ion-label>Selecciona el lugar</ion-label>
+            <ion-select [(ngModel)]="lugarM">
+              <ion-option *ngFor="let lugar of lugares.Lugar" [value]="lugar">{{lugar.Lugar}}</ion-option>
+             
+            </ion-select>
+          </ion-item>
+        </ion-list>
+            <button style="float:right" item-end ion-button color="secondary" >Continuar</button>
+        
+</ion-content>
