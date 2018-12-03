@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import {PayPal,PayPalPayment,PayPalConfiguration} from '@ionic-native/paypal';
 
-/**
- * Generated class for the PagoPaypalComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+
 @Component({
   selector: 'pago-paypal',
   templateUrl: 'pago-paypal.html'
@@ -20,7 +15,7 @@ export class PagoPaypalComponent {
   paypalPayment(){
     this.payPal.init({
       PayPalEnvironmentProduction: 'xxxxxxxxxxxx',
-      PayPalEnvironmentSandbox: 'AB9VOTBKEpsS0eYPlqU1tEkAaFQrAHJIwPRkn4udZcJxVFLopRf9t2tQ'
+      PayPalEnvironmentSandbox: 'ASI03hsOLcHYNP8aqyvEo7Z7I6f3kClaF9gngwJvtDbvyqPhv-toXp83DgXezYs-UT8W3XXt2AEih1UQ'
     }).then(() => {
 
       this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({

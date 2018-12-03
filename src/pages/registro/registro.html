@@ -1,0 +1,50 @@
+<ion-content padding center >
+  <div text-center>
+      <img style=" width: 150px; height: 150px;" src="/assets/logo.png">
+  </div>
+  <br>
+  <h5 style="color:#764EB8; padding-left: 20px;" >Please complete the form</h5>
+  <br>
+  <form [formGroup]="form" (ngSubmit)="registrarse();">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
+      <div style="margin-left:17px" class="invalido" *ngIf="emailExiste==true || (form.controls.email.invalid && form.controls['email'].value!='')">Invalid email or already in use!</div>
+    
+      <ion-item>
+        <ion-input  placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+      <div style="margin-left:17px" class="invalido" *ngIf="(form.controls.password.invalid && form.controls['password'].value!='')">Invalid password, it must has six min length and ten max length!</div>
+     
+      <ion-item>
+          <ion-input  placeholder="Confirm password" formControlName="confirm_password"></ion-input>
+      </ion-item>
+      <div style="margin-left:17px" class="invalido" *ngIf="passCoincide==false && form.controls.confirm_password.value!=''">Passwords don't match!</div>
+      
+      <ion-item>
+          <ion-input  placeholder="First name" formControlName="nombre"></ion-input>
+      </ion-item>
+      <div style="margin-left:17px" class="invalido" *ngIf="form.controls.nombre.invalid && form.controls.nombre.value!=''">First name must has 20 max length!</div>
+      
+      <ion-item>
+          <ion-input  placeholder="Last name" formControlName="apellido"></ion-input>
+      </ion-item>
+      <div style="margin-left:17px" class="invalido" *ngIf="form.controls.apellido.invalid && form.controls.apellido.value!=''">Last name must has 20 max length!</div>
+     
+    </ion-list>
+<ion-item>
+    <ion-label>Country</ion-label>
+    <ion-select formControlName="pais">
+      <ion-option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</ion-option>
+     
+    </ion-select>
+  </ion-item>
+ 
+  <br>
+ <br>
+ <br>
+    <button ion-button full [disabled]="!form.valid">Sign up</button>
+  </form>
+
+</ion-content>

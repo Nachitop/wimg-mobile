@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Perfil del guia</ion-title>
+    <ion-title>Guide profile</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -38,46 +38,46 @@
             
           
         
-       <p  class="inline-p">Edad: </p><p  class="inline-p">{{calculateAge(guia.Guia.fecha_nacimiento)}}</p>
+       <p  class="inline-p">Age: </p><p  class="inline-p">{{calculateAge(guia.Guia.fecha_nacimiento)}}</p>
         <div>
-          <p  class="inline-p" >Sexo: </p>
+          <p  class="inline-p" >Gender: </p>
             <p class="inline-p" > {{convSexo(guia.Guia.sexo)}}</p>
         </div>
         <br>
        
         <div>
-          <h2>Idiomas</h2>
+          <h2>Languages</h2>
           <p>{{idiomas}}</p>
         </div>
         <br>
         <div>
-            <h2>Titulos</h2>
+            <h2>Titles</h2>
             <p>{{titulos}}</p>
           </div>
         <br>
         
           <div>
-              <h2>Lugares conocidos</h2>
+              <h2>Known places</h2>
               <p>{{lugares}}</p>
             </div>
            
       </ion-card-content>
     </ion-card>
     
-        <button [disabled]="guia.Guia.disponibilidad!='A'" style="float:right; margin-right: 10px;" ion-button color="secondary" (click)="showConfirm()">Contratar</button>
+        <button [disabled]="guia.Guia.disponibilidad!='A'" style="float:right; margin-right: 10px;" ion-button color="secondary" (click)="showConfirm()">Hire</button>
       
-    <ion-content>
-    <h2>Comentarios</h2>
-        <ion-list *ngIf="comentarios">
-          <ion-item>
-            <ion-note item-start *ngFor="let comentario of comentarios">
+    <ion-content *ngIf="comentarios">
+    <h2>Comments</h2>
+       <div class="bordered" *ngFor="let comentario of comentarios">
+         
+            <h4 style="margin-top:10px; margin-left:10;" >
               {{comentario.nombre}} {{comentario.apellido}}
-            </ion-note>
+            </h4>
             
-            <ion-note item-end *ngIf="comentario!=undefined">
+            <p style="margin-top:10px; margin-left:10;">
            {{comentario.comentario}}
-            </ion-note>
-          </ion-item>
-        </ion-list>
+            </p>
+          </div>
+       
       </ion-content>
 </ion-content>

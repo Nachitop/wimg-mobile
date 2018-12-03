@@ -72,8 +72,7 @@ export class GoogleMapComponent {
       
        this.latitude=  resp.coords.latitude;
        this.longitud= resp.coords.longitude;
-      console.log(this.latitude)
-      console.log(this.longitud)
+      
       let coords={
         lat:this.latitude,
         lng:this.longitud
@@ -85,7 +84,7 @@ export class GoogleMapComponent {
     this.mapOptions= this.crearOpciones();
    
     this.map.setOptions(this.mapOptions);
-    this.pintarMarcador(this.coordsG,this.map,"Me encuentro aquí!","http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+    this.pintarMarcador(this.coordsG,this.map,"I'm just right here!","http://maps.google.com/mapfiles/ms/icons/red-dot.png");
     this.obtenerLugares();
     
   
@@ -167,11 +166,11 @@ export class GoogleMapComponent {
         this.geolocationService.obtenerGeocoder(coords.lat,coords.lng).subscribe(res=>{
           ubi=this.geolocationService.tratarGeocoder(res as Geo)
           ubi.push(tit);
-            console.log("aaaaaaa");
-            console.log(ubi)
+           
             
             this.navCtrl.push('ListaguiasPage',{
               val: ubi
+             
             });
         
         })
@@ -187,7 +186,7 @@ export class GoogleMapComponent {
           this.places= res as Places;
           console.log(this.places.results);
           for(let lugar of this.places.results){
-           // console.log(lugar.plus_code.compound_code);
+         
           
            
             this.pintarMarcador(lugar.geometry.location,this.map,lugar.name,"http://maps.google.com/mapfiles/ms/icons/blue-dot.png");

@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,12 +22,18 @@ import { DatasharingProvider } from '../providers/datasharing/datasharing';
 import { GeolocationProvider } from '../providers/geolocation/geolocation';
 import { LugarProvider } from '../providers/lugar/lugar';
 
+import { LoginProvider } from '../providers/login/login';
+import { RegistroProvider } from '../providers/registro/registro';
+import { AlertsProvider } from '../providers/alerts/alerts';
+import { ContratacionProvider } from '../providers/contratacion/contratacion';
+
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,GoogleMapComponent,PagoPaypalComponent,
+ GoogleMapComponent,PagoPaypalComponent,//LoginPage
     
   ],
   imports: [
@@ -38,7 +44,8 @@ import { LugarProvider } from '../providers/lugar/lugar';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
+    //LoginPage,RegistroPage,
+   
    
   ],
   providers: [
@@ -51,7 +58,11 @@ import { LugarProvider } from '../providers/lugar/lugar';
     FlagProvider,
     DatasharingProvider,
     GeolocationProvider,
-    LugarProvider
+    LugarProvider,
+    LoginProvider,
+    RegistroProvider,
+    AlertsProvider,
+    ContratacionProvider
  
   ]
 })

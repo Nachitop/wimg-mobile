@@ -13,29 +13,24 @@
 
 <ion-content padding>
 <google-map></google-map>
-<!--<pago-paypal></pago-paypal>-->
-  
 
   <!--<button ion-button secondary menuToggle>Toggle Menu</button>!-->
 </ion-content>
-<div >{{ubi}}</div>
+
 <ion-footer>
   <ion-toolbar>
    <!-- <ion-title>Footer</ion-title>-->
  
     <button ion-button icon-start color="primary" (click)="irAGuias()" >
-      Guias &nbsp; 
+      Guides &nbsp; 
       <ion-icon name="people" ></ion-icon>
     </button>
-    <button ion-button icon-start color="secondary" >
-      Cotizar &nbsp; 
-      <ion-icon name="cash" ></ion-icon>
+
+
+    <button ion-button icon-start color="secondary" (click)="perfilTurista()">
+      My profile &nbsp; 
+      <ion-icon name="person"></ion-icon>
     </button>
 
-    <button ion-button icon-start color="secondary" (click)="irAGuia()">
-      Otro &nbsp; 
-      <ion-icon name="cash" ></ion-icon>
-    </button>
- <div>{{ubi}}</div>
   </ion-toolbar>
 </ion-footer>

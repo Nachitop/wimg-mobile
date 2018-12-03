@@ -1,0 +1,43 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding center text-center>
+    <ion-list>
+        <ion-avatar item-start class="item-avatar">
+            <img [src]="turista.FOTO">
+          </ion-avatar>
+          <br>
+          <br>
+        <ion-item>
+          
+          <ion-label >First name:</ion-label>
+         <ion-label   >{{turista.nombre}}</ion-label>
+        </ion-item>
+      
+        <ion-item>
+            <ion-label >Last name:</ion-label>
+            <ion-label  >{{turista.apellido}}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label >Email:</ion-label>
+            <ion-label    >{{turista.email}}</ion-label>
+        </ion-item>
+
+        <ion-item>
+            <ion-label >Country:</ion-label>
+         
+            <ion-avatar item-end >
+                <img *ngIf="bandera" [src]="bandera">
+               
+               </ion-avatar>
+             
+        </ion-item>
+      </ion-list>
+</ion-content>

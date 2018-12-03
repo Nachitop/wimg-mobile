@@ -4,6 +4,7 @@ export interface Lugar {
 }
 
 export interface Lugar2 {
+    id:                 string;
     Lugar:              string;
     duracion:           string;
     costo:              string;

@@ -1,0 +1,69 @@
+<!--
+  Generated template for the ViajePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>viaje</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding>
+<ion-title text-center>Travel status</ion-title>
+<br>
+<br>
+<ion-list *ngIf="guia" >
+  <ion-item style="margin:auto"  class="bordered">
+    <ion-avatar  item-start>
+        <img [src]="guia.Guia.foto">
+      </ion-avatar>
+      <h3>Name: {{guia.Guia.nombre}} {{guia.Guia.apellido}}</h3>
+      <div *ngIf="lugar">
+      <div>
+          <h3 class="inline-p">Place: </h3><p class="inline-p">{{lugar.nombre}}</p>
+          </div>
+          <div>
+              <h3 class="inline-p">Meeting place: </h3> <p class="inline-p">{{lugar.lugar_de_encuentro}}</p>
+              </div>
+            </div>
+
+    </ion-item>
+    <br>
+    <div class="bordered" *ngIf="habilitarCom==true">
+    <ion-item>
+            
+        <ion-label>Select a valoration</ion-label>
+        <ion-select [(ngModel)]="valoracion">
+          <ion-option >1</ion-option>
+          <ion-option >2</ion-option>
+          <ion-option >3</ion-option>
+          <ion-option >4</ion-option>
+          <ion-option >5</ion-option>
+         
+        </ion-select>
+      </ion-item>
+    <br>
+    <br>
+    <div>
+    <ion-label>Comment</ion-label>
+    <br>
+   
+    <ion-textarea [(ngModel)]="comentario"></ion-textarea>
+  </div>
+    <br>
+    <button [disabled]="(valoracion=='' || comentario=='') || comentado==true" ion-button outline block (click)="retroalimentar()">Send</button>
+  </div>
+     
+    
+ 
+  
+
+ 
+  </ion-list>
+  
+</ion-content>

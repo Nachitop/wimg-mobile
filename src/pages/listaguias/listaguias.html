@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Guias</ion-title>
+    <ion-title>Guides</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,20 +17,20 @@
 <ion-list *ngIf="guias" >
  
   <ion-item-sliding *ngFor="let guia of guias.Guias">
-    <ion-item class="bordered" *ngIf="guia.disponibilidad!=='I'" [ngClass]="{ 'activo': guia.disponibilidad=='A', 'inactivo': guia.disponibilidad=='I' , 'recorrido': guia.disponibilidad=='R' }">
+    <ion-item class="bordered" *ngIf="guia.disponibilidad!=='I'" [ngClass]="{ 'activo': guia.disponibilidad=='A', 'inactivo': guia.disponibilidad=='I' , 'recorrido': guia.disponibilidad=='R','ocupado': guia.disponibilidad=='O' }">
       <ion-avatar item-start>
         <img [src]="guia.foto">
       </ion-avatar>
      
       <h2>{{guia.nombre}} {{guia.apellido}}</h2>
       <div>
-      <h3 class="inline-p">Edad: </h3><p class="inline-p">{{calculateAge(guia.fecha_nacimiento)}}</p>
+      <h3 class="inline-p">Age: </h3><p class="inline-p">{{calculateAge(guia.fecha_nacimiento)}}</p>
       </div>
       <div>
-      <h3 class="inline-p">Sexo: </h3><p class="inline-p">{{convSexo(guia.sexo)}}</p>
+      <h3 class="inline-p">Gender: </h3><p class="inline-p">{{convSexo(guia.sexo)}}</p>
       </div>
       <div>
-          <h3 class="inline-p" >Disponibilidad: </h3><p class="inline-p" >{{convDis(guia.disponibilidad)}}</p>
+          <h3 class="inline-p" >Availability: </h3><p class="inline-p" >{{convDis(guia.disponibilidad)}}</p>
           </div>
          
            
@@ -54,7 +54,7 @@
     <ion-item-options side="right">
       <button ion-button color="primary" (click)="irAPerfil(guia.id)">
         <ion-icon name="perfil"></ion-icon>
-        Ver perfil
+        See profile
       </button>
       
     </ion-item-options>

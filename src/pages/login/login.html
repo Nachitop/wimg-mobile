@@ -1,0 +1,27 @@
+<ion-content padding center>
+    <div text-center>
+        <img style=" width: 250px; height: 250px;" src="assets/imgs/logo.png">
+    </div>
+
+  <ion-list>
+    <ion-item>
+       <ion-label><ion-icon name="mail"></ion-icon></ion-label> <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="email" (keyup)="validarEmail();"></ion-input>
+     
+    </ion-item>
+  
+    <div style="margin-left:17px" class="invalido" *ngIf="emailExiste==false">Email doesn't exist</div>
+
+    <br>
+    <ion-item>
+        <ion-label><ion-icon name="lock"></ion-icon></ion-label><ion-input placeholder="Password" type="password" name="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <br>
+  <button ion-button full [disabled]="!emailExiste" (click)="loguearse()">SIGN IN</button>
+  <br>
+  
+  <div style="margin-left:17px" class="invalido" *ngIf="loginSuccess==false">Wrong password or internal server error</div>
+  <br>
+  <div style="margin-top:100px;" text-center><div style="display: inline;"> Don't you have an account?</div><a (click)="irARegistrarse();"> Sign up!</a></div>
+ 
+</ion-content>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GuiaProvider } from '../../providers/guia/guia';
-import { getNonHydratedSegmentIfLinkAndUrlMatch } from 'ionic-angular/umd/navigation/url-serializer';
 import { Guia1, Comentario } from '../../app/models/guia.model';
 import {round,calculateEdad,sexo} from '../../app//funciones/funcion';
 import { FlagProvider } from '../../providers/flag/flag';
@@ -50,7 +49,7 @@ export class GuiaPage {
       this.obtenerLugares();
       this.obtenerEstrellas();
       this.obtenerComentarios();
-      console.log(this.guia);
+      
     });
   }
   obtenerFlag(){
@@ -99,8 +98,9 @@ obtenerEstrellas(){
 }
 obtenerComentarios(){
   this.guia.comentarios.forEach(val=>{
-    console.log(val);
+   
     this.comentarios.push(val as Comentario);
+    console.log(this.comentarios);
   });
 }
 calculateAge(birthday) { 
@@ -116,17 +116,17 @@ convSexo(sexoo:any){
 
 showConfirm() {
   const confirm = this.alertCtrl.create({
-    title: 'Contratación del guia',
-    message: '¿Está usted seguro de solicitar los servicios de este guia?',
+    title: 'Hiring',
+    message: '¿Are you sure that you want to ask for the services of this guide?',
     buttons: [
       {
-        text: 'Cancelar',
+        text: 'Cancel',
         handler: () => {
-          console.log('Disagree clicked');
+         
         }
       },
       {
-        text: 'Aceptar',
+        text: 'Accept',
         handler: () => {
          this.navCtrl.push('ResumenpagoPage',{
            ubicacion:this.ubi,

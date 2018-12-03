@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import {DatasharingProvider} from '../../providers/datasharing/datasharing';
 import {GuiaProvider} from '../../providers/guia/guia';
 import { Guia1 } from '../../app/models/guia.model';
@@ -25,20 +25,24 @@ export class ListaguiasPage {
   bandera:any;
   estrellas:any[]=[];
   estrellasVacias:any[]=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,private data:DatasharingProvider, private guiaService:GuiaProvider, private flagService:FlagProvider) {
+  loader:any;
+  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,private data:DatasharingProvider, private guiaService:GuiaProvider, private flagService:FlagProvider) {
     this.ubi=this.navParams.get('val');
     this.obtenerFlags();
-    console.log(this.ubi)
+    this.loader = this.loadingCtrl.create({
+      content: "Please wait... Searching for guides",
+    
+    });
   
   }
 
   ionViewDidLoad() {
-   
+    this.loader.present();
     if(this.ubi.length==4){
       this.guiaService.getByLugar2(this.ubi).subscribe(res=>{
        
         this.guias=res as Guia1
-        console.log(this.guias);
+        
        
       });
     }
@@ -46,11 +50,12 @@ export class ListaguiasPage {
       this.guiaService.getByLugar(this.ubi).subscribe(res=>{
         
         this.guias=res as Guia1
-        console.log(this.guias);
+      
      
       });
     }
     
+    this.loader.dismiss();
     
   }
 
@@ -66,12 +71,12 @@ export class ListaguiasPage {
     this.estrellasVacias=[];
   }
   obtenerEstrellas(estrellas:number){
-    console.log(estrellas);
+    
       let obj={}
       for(var i=1;i<= round(estrellas,0);i++){
         this.estrellas.push(obj);
       }
-      console.log(this.estrellas)
+ 
       let estrellita=5-this.estrellas.length;
       if(estrellita>0){
         for(var i=1;i<=estrellita;i++){
